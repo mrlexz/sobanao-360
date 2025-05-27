@@ -1,0 +1,88 @@
+<krpano>
+	<include url="%SWFPATH%/plugins/combobox.xml" />
+	
+	<combobox name="cb1" design="defaults" align="topcenter" x="-50" y="20"  x.mobile="10" y.mobile="10" width="auto" >
+    <item name="item1" caption="OVERVIEW" onclick="" oninit="..." />
+    <item name="item2" caption="OVERVIEW RESORT" onclick="loadscene(scene_s1!overviewfly);" />
+    <item name="item3" caption="OVERVIEW ENTRANCE" onclick="loadscene(scene_gatefly);"  />
+    <item name="item4" caption="OVERVIEW BEACH" onclick="loadscene(scene_beachfly);" />
+     <item name="item5" caption="OVERVIEW WATERPARK" onclick="loadscene(scene_warterparkflycam);" />
+</combobox>
+	
+<combobox name="cb2"  design="defaults" align="topcenter" x="170" y="20"  x.mobile="60" y.mobile="10" width="auto" >
+    <item name="item1" caption="ROOM AND SUITES" onclick="" oninit="..." />
+    <item name="item2" caption="PREMIER DELUXE" onclick="openurl(https://my.matterport.com/show/?m=bTCE4FZyz5f,_blank);" />
+    <item name="item3" caption="NOA GARDEN" onclick="openurl(https://my.matterport.com/show/?m=Xc6mBAaYbRH,_blank);" />
+</combobox>
+	
+<combobox name="cb3"  design="defaults" align="topcenter" x="-300" y="20"  x.mobile="60" y.mobile="10" width="auto" >
+    <item name="item1" caption="RESTAURANTS AND BAR" onclick="" oninit="..." />
+    <item name="item2" caption="ITALIAN RESTAURANT" onclick="loadscene(scene_italyrestauraint);" />
+    <item name="item3" caption="GUSTO MAIN RESTAURANT" onclick="loadscene(scene_gustomainrestaurain1);" />
+</combobox>
+
+<combobox name="cb4"  design="defaults" align="topcenter" x="400" y="20"  x.mobile="60" y.mobile="10" width="auto" >
+    <item name="item1" caption="FACILITIES AND SERVICES" onclick="" oninit="..." />
+    <item name="item2" caption="PURE SPA" onclick="loadscene(scene_sparoom);" />
+    <item name="item3" caption="SWIMMING POOL" onclick="loadscene(scene_pool1);" />
+    <item name="item4" caption="AQUAPARK - WATER TOWER" onclick="loadscene(scene_aquapark1);" />
+    <item name="item5" caption="TENNIS COURT" onclick="loadscene(scene_tenniscourt);" />
+    <item name="item6" caption="GOLF COURT" onclick="loadscene(scene_sangolf);" />
+    <item name="item7" caption="MEETING ROOM" onclick="loadscene(scene_hoitruong1);" />  
+    <item name="item8" caption="BEACH ACTIVIES" onclick="loadscene(scene_beach);" />
+
+</combobox>
+
+<combobox_design name="defaults" margin="6"  margin.mobile="3" padding="15 15 15 15"  padding.mobile="5" open_close_speed="0.25"  >
+    <style name="combobox_container_style"
+           bgalpha="1.0"
+           bgcolor="0x006666"
+           bgborder="1 0xFFFFFF 0.5"
+           bgroundedge="10"
+           bgshadow="0 1 3 0xffffff 0.50"
+           />
+    <style name="combobox_marker_style"
+           css="color:#FFD700;"
+           bg="false"
+           txtshadow="0 0 2 0x000000 1"
+           />
+    <style name="combobox_item_style"
+           css="color:#ffffff;font-size:11px;"
+           css.mobile="color:#ffffff;font-size:8px;"
+           padding="4 20 4 20" padding.mobile="5"
+           bg="false"
+           bgcolor="0xFFD700"
+           bgalpha="1.0"
+           bgroundedge="10"
+           txtshadow="0 0 1 0xFFFFFF 1.0"
+           />
+</combobox_design>
+
+
+<action name="setlang" >
+	set(language,%1);
+    set_hotspot_html(%1);
+	play_sound();
+	</action>
+
+
+<action name="set_hotspot_html">
+    if(%1==vi,for(set(i,0),i LT hotspot.count, inc(i),
+ 			set(hotspot[get(i)].html,get(hotspot[get(i)].html_vi))
+						);,
+    
+    for(set(i,0),i LT hotspot.count, inc(i),
+ 			set(hotspot[get(i)].html,get(hotspot[get(i)].html_en))
+						);
+    
+    );
+     
+   
+    
+</action>
+
+
+
+
+		
+</krpano>

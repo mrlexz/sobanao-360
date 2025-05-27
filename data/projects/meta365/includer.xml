@@ -1,0 +1,105 @@
+<krpano>
+<include url="%SWFPATH%/skin/vtourskin.xml" />
+<include url="%SWFPATH%/skin/layout.xml" />
+<includes url="%SWFPATH%/skin/language.xml" />
+<incclude url="%SWFPATH%/skin/debug.xml" />
+<include url="%SWFPATH%/skin/skin_phone/layout_desktop.xml" devices="desktop"/>
+<include url="%SWFPATH%/skin/skin_phone/layout.xml" devices="mobile|tablet" />
+<include url="%SWFPATH%/plugins/vr_help.xml" />
+<include url="%SWFPATH%/plugins/common.xml" />
+<include url="%SWFPATH%/plugins/krpano_vr.xml" />
+<include url="%SWFPATH%/module/direcths/direcths.xml" />
+<include url="%SWFPATH%/module/lightbox/lightbox.xml" />
+<include url="%SWFPATH%/module/sound/sound.xml" />
+<include url="%SWFPATH%/module/sound/sounds.xml" />
+
+
+
+<skin_settings maps="false"
+	   maps_type="google"
+	   maps_bing_api_key=""
+	   maps_google_api_key=""
+	   maps_zoombuttons="false"
+	   maps_loadonfirstuse="true"
+	   gyro="true"
+	   gyro_keeplookingdirection="false"
+	   webvr="true"
+	   webvr_keeplookingdirection="true"
+	   webvr_prev_next_hotspots="true"
+	   autotour="false"
+	   littleplanetintro="false"
+	   followmousecontrol="false"
+	   title="true"
+	   thumbs="true"
+	   thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	   thumbs_opened="true"
+	   thumbs_text="false"
+	   thumbs_dragging="true"
+	   thumbs_onhoverscrolling="false"
+	   thumbs_scrollbuttons="false"
+	   thumbs_scrollindicator="false"
+	   thumbs_loop="false"
+	   tooltips_buttons="false"
+	   tooltips_thumbs="false"
+	   tooltips_hotspots="false"
+	   tooltips_mapspots="false"
+	   deeplinking="false"
+	   loadscene_flags="MERGE"
+	   loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	   loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	   loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	   loadingtext=""
+	   layout_width="100%"
+	   layout_maxwidth="814"
+	   controlbar_width="-24"
+	   controlbar_height="40"
+	   controlbar_offset="20"
+	   controlbar_offset_closed="-40"
+	   controlbar_overlap.no-fractionalscaling="10"
+	   controlbar_overlap.fractionalscaling="0"
+	   design_skin_images="vtourskin.png"
+	   design_bgcolor="0x0x066eaf"
+	   design_bgalpha="0.8"
+	   design_bgborder="0"
+	   design_bgroundedge="1"
+	   design_bgshadow="0 4 10 0x000000 0.3"
+	   design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	   design_thumbborder_padding="2"
+	   design_thumbborder_bgroundedge="0"
+	   design_text_css="color:#FFFFFF; font-family:Arial;"
+	   design_text_shadow="1"
+	   />
+	
+<!-- startup action - load the first scene -->
+<action name="startup" autorun="onstart">
+	if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+	loadscene(get(startscene), null, MERGE);
+	if(startactions !== null, startactions() );
+	showthumbs();
+</action>
+
+<events name="autoaddthumb" keep="true"
+		onviewchange=" adjusthlookat(180);"
+        onvrcontrollerbutton="set(hotspot[sdre].html,get(vrbuttonindex));"
+		
+		/>
+	
+
+<action name="count_hs_callout">
+	set(count_hs,0);
+	for(set(i,0),i LT hotspot.count, inc(i),
+					   if(hotspot[get(i)].hstype==callout, inc(count_hs); 
+						);				   
+		);
+
+</action>	
+
+
+
+
+
+
+
+
+
+</krpano>

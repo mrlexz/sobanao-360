@@ -1,0 +1,697 @@
+<krpano de="45" noq="1">
+<style name="hs_default"
+	onhover="	txtadd(temp_hs1,get(name),_home);
+			 tween(hotspot[get(temp_hs1)].alpha,0,.1);
+	   			txtadd(xxt,'hs_tien_ich_',get(xml.scene));
+			set(hotspot[home].visible,0);
+	   			set(hotspot[hs_ao].ath,get(hotspot[get(name)].ath));
+	   			set(hotspot[hs_ao].atv,get(hotspot[get(name)].atv));
+	   			txtadd(layer[hs_tooltip_container].parent,'hotspot[hs_ao]');
+	   			txtadd(layer[hs_tooltip].url,'%SWFPATH%/projects/meta365/panos/thumb/',get(name),'.jpg');
+
+				if(
+					language==vi, txtadd(texths,'',get(scene[get(name)].title)),
+					language==en, txtadd(texths,'',get(scene[get(name)].entitle)),
+					
+				);
+
+	   			
+	   			if(autorotate.enabled,set(autorotate.enabled,false));
+				set(layer[hs_tooltip_container].visible,true);		
+				tween(layer[hs_tooltip_container].rotate,0,.1);
+			 
+			 	
+	   			"
+	   onout="set(hotspot[home].visible,1);
+	   			txtadd(xxt,hs_tien_ich_,get(xml.scene));
+	   			 tween(hotspot[get(temp_hs1)].alpha,1,.1);
+				switch(de,-45,45);
+				tween(layer[hs_tooltip_container].rotate,get(de),.5);
+				set(layer[hs_tooltip_container].visible,false);
+				
+			
+	   			"
+	   onclick="
+	       	"
+	   onloaded="asyncloop(hovering, add(zorder,100), sub(zorder,100))"
+/>
+  <style name="textup"  
+         type="text"
+         ath="0" atv="0" edge="bottom" oy="-60" oy.mobile="-40"
+         distorted="false"
+         renderer="webgl"
+         html="Text...[br][b]Bold Text...[/b]"
+         css="font-size:12px; color:#ffffff;"
+         css.mobile="font-size:9px; color:#ffffff;"
+         vcenter="false"
+         padding="5 10 5 10"
+         wordwrap="true"
+         selectable="false"
+         bg="true"
+         bgcolor="0x066eaf"
+         bgalpha="0.8"
+         bgborder="1 0xffffff 1"
+         bgroundedge="10"
+         bgshadow=""
+         txtshadow=""
+         enabled="false"
+         mergedalpha="true"
+         oversampling="1.0"
+         mipmapping="true"
+         onautosized=""/>  
+<style name="click_zone" fillcolor="0x000f0f"  
+	   align="center" edge="center"    
+       fillalpha="0.0" borderalpha="0"
+       capture="false"
+		zoder="100"
+		onhover.addevent="copy(xz,get(hotspot[get(name)].parent));set(noq,0);"
+		onout.addevent=" set(noq,1);" 
+ 	/>
+<style name="hotspot" type="text"
+		html=""
+	   render="webgl"
+		css="font-size:80px;text-align:center;" vcenter="true"
+		width="200" height="200" scale="0.16"
+		bgalpha="0.5" bgroundedge="100" bgborder="3 0xffffff 1" bgshadow="0 0 5 0xFFFFFF 1.0"
+		oversampling="100" mipmapping="true" zorder="1"
+		distorted="true" depth="0" depthbuffer="true"
+		torigin="world" rotationorder="xyz" rx="-90"
+		capture="false" handcursor="true"
+		alpha="1"
+			 onhover="tween(bgcolor,0x003a40);set(noq,0);"
+			 onout="tween(bgcolor,0xffffff);set(noq,1);"
+		floorheight_cm="190"
+	   onloaded="			 
+			
+"
+	   
+/>
+<style name="flycam" url="hs/new_spotd11_gif.png"
+	   scale="0.3"
+	   scale.touch="0.2"
+	   edge="bottom"
+	   crop="0|0|128|128"
+        framewidth="128" frameheight="128" frame="0" lastframe="24"
+        onloaded="hotspot_animate();"/>
+
+<style name="here" url="hs/new_spotd8_gif.png" 
+	   scale="0.8"
+	   scale.touch="0.8"
+	   edge="bottom"
+	   crop="0|0|128|128"
+        framewidth="128" frameheight="128" frame="0" lastframe="24"
+        onloaded="hotspot_animate();"
+	   
+/>
+
+<style name="hotspot_ani_guide"
+           scale="1"
+           url="hs/tour_guide.png"
+           crop="0|0|100|100"
+           framewidth="100" frameheight="98.5" frame="0" lastframe="2"
+           onloaded="hotspot_animate();"
+           
+/>
+
+<style name="hotspot1"
+		scale="1"
+		scale.mobile=".8"
+	   onhover.addevent="tween(scale,1.1)"
+       onout.addevent="tween(scale,1)"
+	  edge="bottom"
+	   oy="0"
+        url="hs/arrow_down.png"
+      
+	/>
+	
+<style name="hotspot3"
+		scale=".1"
+	   scale.touch=".1"
+	   
+	  edge="bottom"
+	   oy="0"
+        url="hs/img2d.png"
+      
+	/>
+	
+	
+<style name="hotspot2"
+		scale=".6"
+	  edge="bottom"
+        url="hs/new_spotd6_gif.png"
+        crop="0|0|128|128"
+        framewidth="128" frameheight="128" frame="0" lastframe="24"
+        onloaded="hotspot_animate();"
+	   
+	   
+	/>
+
+<style name="turn_left"
+	   		
+           scale=".75"
+           url="hs/turn_left.png"
+           crop="0|0|128|128"
+           framewidth="128" frameheight="128" frame="0" lastframe="24"
+           onloaded="hotspot_animate();"
+           
+/>
+<style name="turn_right"
+           scale=".75"
+           url="hs/turn_right.png"
+           crop="0|0|128|128"
+           framewidth="128" frameheight="128" frame="0" lastframe="24"
+           onloaded="hotspot_animate();"
+           
+/>
+<style name="ahead"
+	   
+	      zoder="2"
+           scale=".75"
+           url="hs/ahead.png"
+           crop="0|0|128|128"
+           framewidth="128" frameheight="128" frame="0" lastframe="24"
+           onloaded="hotspot_animate();"
+           
+/>
+<style name="here_left"
+           scale=".5"
+           url="hs/here_left.png"
+           crop="0|0|128|128"
+           framewidth="128" frameheight="128" frame="0" lastframe="24"
+           onloaded="hotspot_animate();"
+           
+/>
+	<style name="hotspot1z"
+		scale=".7"
+	   scale.touch=".7"
+	   distorted="false"
+	  edge="bottom"
+	   oy="0"
+        url="hs/arrow_down.png"
+       onloaded="animation();add_hs(calc(name+'_home'),get(ath),get(atv),get(t_height),-50);add_tien_ich_n(calc(name+'_home'),get(title),get(t_align),0);"
+      animation="tween(oy, calc(3 - oy), 0.3, easeoutbounce, animation());"
+      
+	/>
+<style name="here_right"
+           scale=".5"
+           url="hs/here_right.png"
+           crop="0|0|128|128"
+           framewidth="128" frameheight="128" frame="0" lastframe="24"
+           onloaded="hotspot_animate();"
+           
+/>
+<hotspot name="hs_ao" keep="true" url="hs/left.png"
+	   scale="0.001" alpha="1" ath="0" atv="0"
+	   />                
+<layer name="hs_tooltip_container"  keep="true" zorder="100"
+       type="container" width="500" height="180" visible="false"
+       y="30" x="0" maskchildren="true"
+       bgcolor="0x066eaf" bgroundedge="10"
+       bgalpha="0" align="bottom" rotate="45" >
+	
+   
+
+	<layer name="hs_con"  keep="true" zorder="100"
+       type="container" width="185" height="97" visible="true" x="0"
+       y="25" maskchildren="true"
+		bgroundedge="10" bgcolor="0x066eaf" 
+       	bgalpha="1" align="center" >
+		 
+	<layer name="hs_con1"  keep="true" zorder="100"
+       type="container" width="180" height="90" visible="true"
+       y="-.01" maskchildren="true"
+		bgroundedge="10" bgcolor="0x019680"
+       	bgalpha="0" align="center" >
+		<layer name="hs_tooltip"
+			 align="center"
+			   url=""
+			   scale=".8"
+	   		   x="0" y="0"
+	    	 
+	    />
+	</layer>
+	
+	</layer>
+	
+  
+
+</layer>
+	<style name="hs_bot"
+	   
+	   
+	onhover="	
+			 autorotate.stop();
+			 
+	   			"
+	   onout="
+			 
+			 autorotate.start();
+	   			"
+	   onclick="
+				txtadd(tepm,'%SWFPATH%/editsoure/anhdiadiem/',get(name),'.jpeg');
+				set(gallery[showimg].thumb[t1].imgurl,get(tepm));
+				
+				
+	       	"
+	  
+/>	
+	<!--showgallery(showimg);
+				set(layer[title_ga].html,get(title));-->
+<gallery name="full" imgactive="0">
+        		<thumb name="t1" imgurl="%SWFPATH%/editsoure/gallery/abc.jpg"/>
+        		
+</gallery>	
+
+<action name="show_tooltip">
+	
+	set(layer[hss_tooltip_container].scale,1);
+	set(layer[hss_tooltip_container].visible,1);
+	set(hotspot[hs_ao].ath,get(hotspot[%1].ath));
+	set(hotspot[hs_ao].atv,get(hotspot[%1].atv));
+	set(layer[hss_tooltip_container].parent,'hotspot[hs_ao]');
+	set(layer[hss_tooltip_container].oy,0);
+	set(layer[hss_tooltip_container].zoom,false);
+	set(layer[tooltip_info].html,get(hotspot[%1].title));
+	
+	
+	</action>
+	
+<action name="hide_tooltip">
+	
+	set(layer[hss_tooltip_container].scale,0);
+	
+	set(layer[hss_tooltip_container].visible,0);
+	
+	</action>
+	
+	
+	<layer name="hss_tooltip_container"  keep="true" zorder="100"
+       type="container" width="120" height="100" visible="0" 
+       y="0" x="0" maskchildren="false" capture="false" parent="" enabled="false"
+       bgcolor="calc:skin_settings.design_bgcolor" bgroundedge="10"
+       bgalpha="0" align="bottom">
+	 <layer name="dot" url="%SWFPATH%/plugins/textfield.swf" zorder="5000"
+   		  align="bottomcenter"  x="0" y="0"
+		  width="20" height="20" html="▼" capture="false"
+    	  backgroundcolor="calc:skin_settings.design_bgcolor" backgroundalpha=".0" bgshadow="1"
+    	  roundedge="5" 
+		  onclick="tween(layer[hs_matbang_container].alpha,0,.2);wait(1);tween(layer[hs_matbang_container].visible,0);" 
+		   
+    	  css="						color:#13203f; 
+									font-family: &#34;Lato-Light &#34;,	&#34;Lato	&#34;,sans-serif;
+									font-size:6px;
+									text-align:center; 
+									background-color: hsla(204, 100%, 50%, 0);
+			   						
+									
+									border-radius: 50px;
+									border:solid 0px white;"
+    /> 
+  
+ <layer name="tooltip_line" url="%SWFPATH%/plugins/textfield.swf" zorder="5"
+   		  align="center"  x="0" y="0"
+		  width="auto" height="auto" html=""
+    	  backgroundcolor="0x019680" backgroundalpha="0.0" bgshadow="1"
+    	  roundedge="5" capture="false"
+    	  vcenter="true"  
+    	  css="						 
+									font-family: &#34;Lato-Light &#34;,	&#34;Lato	&#34;,sans-serif;
+									font-size: 0px;
+									text-align:bottom; 
+									background-color: hsla(204, 100%, 50%, 0);
+			   						height: 60px;
+									border-radius: 10px;
+									border-left:dashed 1px #13203f;"
+		   
+    /> 
+
+     
+ <layer name="tooltip_info" url="%SWFPATH%/plugins/textfield.swf" zorder="5"
+   		  align="center"  x="0" y="-30"
+		  width="auto" height="auto" html="	"
+    	  backgroundcolor="0x019680" backgroundalpha=".0" bgshadow="1"
+    	  roundedge="5" capture="false"
+    	  vcenter="true"  
+    	  css="						color:#FFA500; 
+									font-family: &#34;Lato-Light &#34;,	&#34;Lato	&#34;,sans-serif;
+									font-size: 11px;
+									text-align:left; 
+									background-color: #13203f;
+									padding:5px 10px 5px 10px ;
+									border-radius: 10px;
+									border:solid 0px white;"
+		   
+    /> 
+
+   
+
+</layer>
+	
+<style name="cir_point"
+	   zoom="true"
+       scale=".12"
+       url="hs/cir_point.png"
+	   onhover="show_tooltip(get(name));autorotate.stop();"
+	   onout="hide_tooltip();autorotate.start();"
+       onloaded="do_crop_animation(219,219, 60);"
+           
+/>
+<action name="do_crop_animation" scope="local" args="framewidth, frameheight, framerate">
+<!--  define local variables  -->
+calc(local.xframes, (caller.imagewidth /framewidth) BOR 0); calc(local.frames, xframes * ((caller.imageheight / frameheight) BOR 0)); def(local.frame, integer, 0);
+<!--  set the first frame  -->
+calc(caller.crop, '0|0|' + framewidth + '|' + frameheight);
+<!--  do the animation  -->
+setinterval(calc('crop_anim_' + caller.name), calc(1.0 / framerate), if(caller.loaded, inc(frame); if(frame GE frames, if(caller.onlastframe !== null, callwith(caller, onlastframe() ) ); set(frame,0); ); mod(xpos, frame, xframes); div(ypos, frame, xframes); Math.floor(ypos); mul(xpos, framewidth); mul(ypos, frameheight); calc(caller.crop, xpos + '|' + ypos + '|' + framewidth + '|' + frameheight); ,
+<!--  stop the interval when the hotspot gets removed  -->
+clearinterval(calc('crop_anim_' + caller.name)); ); );
+</action>	
+	
+	
+	
+ <action name="tween_view">
+	 set(t_fov,get(view.fov));
+	tween(view.fov,calc(t_fov-2),0.5);delayedcall(.1,tween(view.fov,get(t_fov),0.5))
+	</action>
+<action name="create_hs_p">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2|hs_bot);
+	set(hs.ath,%3);
+	set(hs.hscene,%1);
+	set(hs.atv,%4);
+	set(hs.rotate,%5);
+	if(%6, set(hs.scale,%6));
+	set(hs.title,%7);
+	set(hs.keep_view,%8);
+	
+</action>
+		
+<action name="create_hs_ga">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	txtadd(temp_hs1,%1,_home);
+	hs.loadstyle(%2);
+	set(hs.onhover,'showtext(Hiẻn thị hình ảnh,STYLE4 );');
+	set(hs.ath,%3);
+	set(hs.atv,%4);
+	
+	
+	set(hs.onclick,txtadd(tempga,'%SWFPATH%/editsoure/gallery/',%1,'.jpg');
+	set(gallery[full].thumb[t1].imgurl,get(tempga));showgallery(full));
+		txtadd(temp_hs,%1,xxxx);
+	if(%6,add_hs(get(temp_hs1),%3,%4,%6,-50);,add_hs(get(temp_hs1),%3,%4,40,-50););
+	if(%6,add_tien_ich_n(get(temp_hs1),%5,%7,0);,add_tien_ich_n(get(temp_hs1),%5,center,0););
+</action>
+
+<action name="hotspot_animate">
+        inc(frame,1,get(lastframe),0);
+        mul(ypos,frame,frameheight);
+        txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+        delayedcall(.035, if(loaded, hotspot_animate() ) );
+</action>
+	
+	<action name="create_hs_back2">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	txtadd(temp_hs1,%1,_home);
+	hs.loadstyle(%2);
+	set(hs.ath,%3);
+	set(hs.capture,0);
+	set(hs.hscene,%1);
+	set(hs.atv,%4);
+    
+    set(hs.onclick,	
+	set(layer[hs_tooltip_container].visible,false);
+	wait(.1);
+	
+	if(%5,set(view.hlookat,%5));  );
+    
+    txtadd(hsx,%1,_up);
+    addhotspot(get(hsx));
+	copy(hs1,hotspot[get(hsx)]);
+	hs1.loadstyle(textup);
+	set(hs1.ath,%3);
+	set(hs1.atv,%4);
+	set(hs1.html,get(scene[%1].title));
+	set(hs1.html_vi,get(scene[%1].title_vi));
+	set(hs1.html_en,get(scene[%1].title_en));
+    
+
+</action>
+	
+<action name="create_hs">
+	addhotspot(%1);
+	
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(hs.ath,%3);
+	set(hs.atv,%4);
+	if(%6,set(hs.scale,%6));
+	
+	
+	set(hs.onclick,	
+	set(layer[hs_tooltip_container].visible,false);
+	wait(.1);
+	loadscene(get(name),null, KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+	
+	
+	txtadd(layerx,%1,_zone);
+	
+	addhotspot(get(layerx));
+    copy(ti,hotspot[get(layerx)]);
+    set(ti.parent,hotspot[%1]);
+    set(ti.capture,false);
+  	ti.loadstyle(click_zone);
+   <!-- dưới phải -->
+	set(hotspot[get(layerx)].point[0].ath,calc(%3+20));
+	set(hotspot[get(layerx)].point[0].atv,calc(%4+20));
+	<!-- dưới trái -->
+	set(hotspot[get(layerx)].point[1].ath,calc(%3-20));
+	set(hotspot[get(layerx)].point[1].atv,calc(%4+20));
+	<!-- trên trái -->
+	set(hotspot[get(layerx)].point[2].ath,calc(%3-20));
+	set(hotspot[get(layerx)].point[2].atv,calc(%4-80));
+	<!-- trên phải -->
+	set(hotspot[get(layerx)].point[3].ath,calc(%3+20));
+	set(hotspot[get(layerx)].point[3].atv,calc(%4-80));
+	
+	
+    set(ti.onclick,	loadscene(get(hotspot[%1].name),null, MERGE|KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+    
+	
+
+</action>
+	
+<action name="create_hs_nk">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(hs.ath,%3);
+	set(hs.atv,%4);
+	set(hs.title,%5);
+	
+	
+	
+
+</action>
+	
+	<action name="count_callout">
+	
+	for(set(i,0),i LT hotspot.count, inc(i),
+		tween(hotspot[get(i)].alpha,1);
+	 
+		);
+		
+	</action>
+	
+<action name="create_hs_floor">
+	addhotspot(%1);
+	
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(d,1);			 
+			set(h,%3);set(v,%4);
+			spheretospace(h,v,d, x,y,z);
+			calc(fh, 190);
+			calc(x, x*fh/y);
+			calc(z, z*fh/y);
+			set(hs.tx,calc(view.tx + x));	 
+			set(hs.ty,get(fh));	 
+			set(hs.tz,calc(view.tz + z));	 		 
+				 		
+	
+	
+	set(hs.onclick,	
+	set(layer[hs_tooltip_container].visible,false);
+	wait(.1);
+	loadscene(get(name),null, MERGE|KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+	
+	
+	txtadd(layerx,%1,_zone);
+	
+	addhotspot(get(layerx));
+    copy(ti,hotspot[get(layerx)]);
+    set(ti.parent,hotspot[%1]);
+    set(ti.capture,false);
+  	ti.loadstyle(click_zone);
+   <!-- dưới phải -->
+	set(hotspot[get(layerx)].point[0].ath,calc(%3+20));
+	set(hotspot[get(layerx)].point[0].atv,calc(%4+20));
+	<!-- dưới trái -->
+	set(hotspot[get(layerx)].point[1].ath,calc(%3-20));
+	set(hotspot[get(layerx)].point[1].atv,calc(%4+20));
+	<!-- trên trái -->
+	set(hotspot[get(layerx)].point[2].ath,calc(%3-20));
+	set(hotspot[get(layerx)].point[2].atv,calc(%4-80));
+	<!-- trên phải -->
+	set(hotspot[get(layerx)].point[3].ath,calc(%3+20));
+	set(hotspot[get(layerx)].point[3].atv,calc(%4-80));
+	
+	
+    set(ti.onclick,	loadscene(get(hotspot[%1].name),null, MERGE|KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+    
+	
+
+</action>
+	
+	
+		
+<action name="create_hs_floor_nz">
+	addhotspot(%1);
+	
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(d,1);			 
+			set(h,%3);set(v,%4);
+			spheretospace(h,v,d, x,y,z);
+			calc(fh, 160);
+			calc(x, x*fh/y);
+			calc(z, z*fh/y);
+			set(hs.tx,calc(view.tx + x));	 
+			set(hs.ty,get(fh));	 
+			set(hs.tz,calc(view.tz + z));	 
+	
+	
+	set(hs.onclick,	
+	set(layer[hs_tooltip_container].visible,false);
+	wait(.1);
+	loadscene(get(name),null, KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+	
+
+</action>
+	
+	
+	
+	<action name="create_hs_single">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(hs.ath,%3);
+	set(hs.atv,%4);
+	set(hs.scale,%5);
+	set(hs.onclick,	
+	loadscene(get(name),null, KEEPVIEW, ZOOMBLEND(0.4, 2.0, easeInOutSine)););
+	
+	
+	
+
+</action>
+	
+	<action name="create_hs_m">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	hs.loadstyle(%2);
+	set(hs.ath,%3);
+	set(hs.hscene,%1);
+	set(hs.atv,%4);
+	txtadd(temp_hs,%1,xxxx);
+	if(%6,set(hs.scale,%6));	
+	
+</action>
+	
+	
+	
+<action name="create_hs_back">
+	addhotspot(%1);
+	copy(hs,hotspot[%1]);
+	txtadd(temp_hs1,%1,_home);
+	hs.loadstyle(%2|hs_default);
+	set(hs.ath,%3);
+	set(hs.capture,0);
+	set(hs.hscene,%1);
+	set(hs.atv,%4);
+    
+    set(hs.onclick,	
+	set(layer[hs_tooltip_container].visible,false);
+	wait(.1);
+	loadscene(get(name),null, MERGE, BLEND(0.1, easeInCubic));
+	if(%5,set(view.hlookat,%5));  );
+    
+    txtadd(hsx,%1,_up);
+    addhotspot(get(hsx));
+	copy(hs1,hotspot[get(hsx)]);
+	hs1.loadstyle(textup);
+	set(hs1.ath,%3);
+	set(hs1.atv,%4);
+	set(hs1.html,get(scene[%1].title));
+	set(hs1.html_vi,get(scene[%1].title_vi));
+	set(hs1.html_en,get(scene[%1].title_en));
+    
+
+</action>
+
+	
+	
+<action name="hotspot_animate">
+        inc(frame,1,get(lastframe),0);
+        mul(ypos,frame,frameheight);
+        txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+        delayedcall(.035, if(loaded, hotspot_animate() ) );
+</action>
+<action name="check_length">
+	
+	
+	
+	
+	</action>
+	<action name="create_hs_place">
+	  for(set(i,0),i LT %1.tienich.count, inc(i),
+    txtadd(temps,p,get(i));
+    txtadd(temp_hs1,get(temps),x);
+    
+    if(%1.tienich[get(i)].scence,
+    create_hs(get(%1.tienich[get(i)].scence),get(%1.tienich[get(i)].style),get(%1.tienich[get(i)].ath),get(%1.tienich[get(i)].atv),0);
+    
+    add_hs(get(temp_hs1),get(%1.tienich[get(i)].ath),get(%1.tienich[get(i)].atv),get(%1.tienich[get(i)].t_height),-40);
+	  add_tien_ich_n(get(temp_hs1),get(%1.tienich[get(i)].title),get(%1.tienich[get(i)].t_edge),get(%1.tienich[get(i)].t_ox));,
+	
+    add_hs(get(temp_hs1),get(%1.tienich[get(i)].ath),get(%1.tienich[get(i)].atv),get(%1.tienich[get(i)].t_height),10);
+    add_tien_ich_n(get(temp_hs1),get(%1.tienich[get(i)].title),get(%1.tienich[get(i)].t_edge),get(%1.tienich[get(i)].t_ox)); 
+    
+    );
+    
+    
+    
+    );
+	for(set(i,0),i LT %1.tienich.count, inc(i),txtadd(temps,p,get(i));
+    txtadd(temp_hs1,get(temps),x);
+    
+    if(%1.tienich[get(i)].colors,
+    create_hs(get(%1.tienich[get(i)].scence),get(%1.tienich[get(i)].style),get(%1.tienich[get(i)].ath),get(%1.tienich[get(i)].atv),0);
+    
+    add_hs(get(temp_hs1),get(%1.tienich[get(i)].ath),get(%1.tienich[get(i)].atv),get(%1.tienich[get(i)].t_height),-40);
+	  add_tien_ich(get(temp_hs1),get(%1.tienich[get(i)].title),get(%1.tienich[get(i)].t_edge),get(%1.tienich[get(i)].t_ox));));
+	
+	</action>
+	<action name="add_tien_ich_n">
+	  addlayer(%1);
+    copy(ti,layer[%1]);
+  ti.loadstyle(help_ghichu);
+    set(ti.parent,hotspot[%1]);
+    set(ti.html,%2);
+    set(ti.edge,%3);
+    set(ti.zoder,-1);
+    set(ti.ox,%4);</action>
+if(autorotate.enabled == false AND layer[skin_btn_rotate].tooltip == 'Xoay ảnh',,set(autorotate.enabled,true));
+</krpano>

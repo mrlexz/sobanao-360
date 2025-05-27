@@ -1,0 +1,187 @@
+<krpano>
+  
+  <include url="%SWFPATH%/skin/settings.xml"/>
+  <style name="btnsCtrls" keep="true" zorder="1" smoothing="true" width="100" height="100"/>
+  <style name="btnsActive" ondown="" onup=" "/>
+  <style name="thumbstyle" bgroundedge="30" onover="tween(layer[get(name)].x,-5,.2);"  onout="tween(layer[get(name)].x,0,.2);"/>
+  <style name="button_music" url="%SWFPATH%/plugins/textfield.swf" 
+			background="true" backgroundcolor="0xf9f6f1" backgroundalpha="0.0" css="get:skin_settings.design_sound_css" width="90%" 
+			height="auto" hcenter="true"   padding="0" x="0"  interactivecontent="true" wordwrap="true" align="center"
+		    onhover=" tween(x,20);  "
+		   	onout=" tween(x,0);    "
+		
+			/>
+  <style name="sidebarbt" url="base.png" scale=".5" align="lefttop"  onhover="tween(layer[hint].x,get(x),.1);tween(layer[hint].alpha,1,.2);
+				if(language==vi,set(layer[hint].html,get(hint));,set(layer[hint].html,get(hint_en)););
+				
+				
+				tween(scale,.4,0.1);"
+	   onout="tween(layer[hint].alpha,0,.1);set(layer[hint].html,);tween(scale,.3,0.3);"
+	    />
+  <style name="helpstyle"  scale=".4" />
+  <style name="button_toolbar" 
+	  
+	   scale=".3"
+	   onhover="tween(layer[hint].x,get(x),.1);tween(layer[hint].alpha,1,.2);
+				if(language==vi,set(layer[hint].html,get(hint));,set(layer[hint].html,get(hint_en)););
+				
+				
+				tween(scale,.4,0.1);"
+	   onout="tween(layer[hint].alpha,0,.1);set(layer[hint].html,);tween(scale,.3,0.3);"
+	   
+	   />
+  <style name="text" url="%SWFPATH%/plugins/textfield.swf"
+	   		  align="bottomcenter"  x="0" y="0" 
+	    	  width="100%" height="20"
+	    	  backgroundcolor="0x0071a6" backgroundalpha="0.6"
+	    	  roundedge="0"
+	    	  vcenter="true" padding="0"
+	    	  css="calc:skin_settings.design_text_css + 'font-weight:regular; text-align:center; font-size:10px;'" />
+
+  <!--
+<layer name="skin_info_container" parent="layer_root" bgalpha="1.0" bgcolor="calc:skin_settings.design_bgcolor" keep="true" type="container" align="center" x="0" y="0" width="70%" height="70%" bgroundedge="20" 	 bgborder="1 0xFFFFFF 0.5" 
+		   maskchildren="false">
+	 
+	<layer name="info_close"  url="images/btn_x.png"  align="righttop" x="10" y="10" scale="0.7" zorder="2" ondown="close_info()" />
+	<layer name="html_div"
+	       type="container" parent="layer_root"
+	       align="center" width.normal="100%" width.mobile="50%" height.normal="95%" height.mobile="400" x="10" y="0"
+	       bgcolor="0xffffff" bgalpha="0.0"
+	       bgcapture="true" capture="true" handcursor="false" bgroundedge="20"
+	       onloaded="add_html_code(get(data[code_1].content), 10);"
+	       />
+	
+</layer>
+
+-->
+  
+  <layer name="layer_root" keep="true" type="container" align="top" parent="root_layer" zorder="50"
+		   width="100%" height="100%" bgcolor="0x066eaf" bgalpha="calc:skin_settings.menu_bg_alpha" vcenter="true" maskchildren="false"  >
+	  
+	
+	  
+    <layer name="showmenu_box" type="container" align="bottomcenter" x="0" y="-50" width="32" height="32" bgcolor="0xFF9900" visible="true" bgroundedge="50" bgalpha="1"  scalechildren="true" scale="1.0" keep="true" >
+      <layer name="showmenu_bt" style="sidebarbt" crop="0|320|64|64"  align="center" y="0" 
+						onhover="tween(layer[showmenu_box].scale,1.2,.1);
+								 if(language==vi, showtext(Hiện menu, default),showtext(Show menu, default));" 
+						onout="tween(layer[showmenu_box].scale,1,.1);"	 
+					    onclick="open_menu();tween(layer[toolbar_container].y,0,0.5);tween(layer[menu_container].x,0,0.5);tween(layer[showmenu_box].y,-50,0.5);"/>
+    </layer>
+    <layer name="hint" url="%SWFPATH%/plugins/textfield.swf" align="bottom" html="BẠN ĐANG XEM" x="-340" y="45" alpha="0" zorder="12"   bgalpha="0" padding="10" css="calc:skin_settings.design_text_css" />
+	  
+    <layer name="toolbar_container" type="container" bgalpha=".8" bgcolor="0x066eaf" align="bottom" x="0" y="0" width="567"  height="45" maskchildren="true" bgroundedge="20"  bgcapture="true">
+		
+      <layer name="info_bt" url="%SWFPATH%/skin/skin_phone/images/info.png" style="button_toolbar"  align="center" y="0" x="0" hint="Xem Giới Thiệu" hint_en="Imfomation" onclick="if(language==vi,show_info_vi(),show_info_en());"
+						/>
+      
+      <!--	left side		-->
+      <layer name="map_bt" url="%SWFPATH%/skin/skin_phone/images/map.png" style="button_toolbar"  align="center" x="-100" x.mobile="-40" y="0" hint="Mở Bản Đồ" hint_en="Open Map" onclick="plugin[easy_html_lightbox].open_url('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.2382128038907!2d109.18988672587912!3d12.095838033471539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31708b194f092cc1%3A0x5cdf0bad8a3892b0!2sCam%20Ranh%20Riviera%20Beach%20Resort%20%26%20Spa!5e0!3m2!1svi!2s!4v1709176830167!5m2!1svi!2s'); "
+						/> 
+      <layer name="gmail_bt" url="%SWFPATH%/skin/skin_phone/images/gmail.png" style="button_toolbar"  align="center" x="-150" x.mobile="-80" y="0" hint="Gửi Mail" hint_en="Send Email" onclick="js(openNav());pausesound(bgsound);"
+						/>
+     
+      <layer name="youtube_bt" url="%SWFPATH%/skin/skin_phone/images/youtube.png" style="button_toolbar"  align="center" x="-200" x.mobile="-120" y="0" hint="Mở Youtube" hint_en="Open Youtube Video" onclick="youtubeplayer_open(get(skin_settings.youtube));pausesound(bgsounds);pausesound(intro_sound);"
+						/>
+     
+   
+      <!--	rightside	-->
+      		<layer name="bgsound_box" type="container" align="center" x="100" x.mobile="40" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true" bgroundedge="50" bgalpha="0"  scalechildren="true" scale="1.0" keep="true" >
+				<layer name="bgsound_bt" style="sidebarbt" crop="0|192|64|64"  align="center" y="0" 
+						onhover="tween(layer[bgsound_box].bgalpha,.8,0);
+								 if(language==vi, showtext(Bật/Tắt Nhạc nền, default),showtext(On/Off Background music, default));" 
+						onout="tween(layer[bgsound_box].bgalpha,0,.8);"	 
+					    onclick="if(layer[bgsound_bt].crop == '0|192|64|64',pausesound(bgsounds);  set(layer[bgsound_bt].crop, 64|192|64|64);, pausesoundtoggle(bgsounds); set(layer[bgsound_bt].crop, 0|192|64|64););"/>
+			</layer>
+			
+     	<layer name="voice_box" type="container" align="center" x="150" x.mobile="80" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true" bgroundedge="50" bgalpha="0" scalechildren="true" scale="1.0" keep="true" >
+				<layer name="voice_bt" style="sidebarbt" crop="0|256|64|64" align="center" y="0" 
+					   onhover="tween(layer[voice_box].bgalpha,.8,0);if(language==vi, showtext(Bật/Tắt Lời Bình, default),showtext(On/Off Voice, default));" 
+						onout="tween(layer[voice_box].bgalpha,0,.8);"	 
+					   onclick="if(layer[voice_bt].crop == '0|256|64|64', pausesound(intro_sound); set(layer[voice_bt].crop, 64|256|64|64);, resumesound(intro_sound); set(layer[voice_bt].crop, 0|256|64|64););" />
+			</layer>
+					
+      	
+		<layer name="settings_box" type="container" align="center" x="200" x.mobile="120" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true"  bgroundedge="50" bgalpha="0" scalechildren="true" scale="1.0" keep="true" >
+				<layer name="settings_bt" style="sidebarbt" crop="64|576|64|64" align="center" y="0" 
+					   onhover="tween(layer[settings_box].bgalpha,.8,0);if(language==vi, showtext(Mở Cài Đặt, default),showtext(Open Settings, default));" 
+						onout="tween(layer[settings_box].bgalpha,0,.8);"	 
+					   onclick="open_settings()" />
+			</layer>
+					
+   <!--  	<layer name="vr_box" type="container" align="center" x="250" x.mobile="160" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true" visible.mobile="false" bgroundedge="50" bgalpha="0" scalechildren="true" scale="1.0" keep="true" >
+				<layer name="vr_bt" style="sidebarbt" crop="0|640|64|64" align="center" y="0" 
+					   onhover="tween(layer[vr_box].bgalpha,.8,0);if(language==vi, showtext(Chế Độ VR, default),showtext(VR MODE, default));" 
+						onout="tween(layer[vr_box].bgalpha,0,.8);"	 
+					   onclick="webvr.enterVR();" />
+			</layer>
+					
+     -->
+     	<layer name="next_box" type="container" align="rightcenter" align.mobile="center" x="5"  x.mobile="160" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true" bgroundedge="50" bgalpha="0" scalechildren="true" scale="1.0" keep="true" >
+				<layer name="next_bt" style="sidebarbt" crop="64|768|64|64"  align="center" y="0" 
+					   	onhover="tween(layer[next_box].bgalpha,.8,0);
+								 if(language==vi, showtext(Chuyển cảnh tiếp theo, default),
+								 showtext(Next, default));" 
+						onout="tween(layer[next_box].bgalpha,0,.8);"
+					   
+					   	onclick="skin_nextscene_loop(+1)"/>
+			</layer>
+			
+		<layer name="back_box" type="container" align="leftcenter" align.mobile="center" x="5" x.mobile="-160" y="0" width="32" height="32" bgcolor="0xFF9900" visible="true" bgroundedge="50" bgalpha="0" scalechildren="true" scale="1.0" keep="true" >
+				<layer name="back_bt" style="sidebarbt" crop="0|768|64|64"  align="center" y="0" 
+					   	onhover="tween(layer[back_box].bgalpha,.8,0);
+								 if(language==vi, showtext(Quay lại Cảnh Trước, default),
+								 showtext(Back, default));" 
+						onout="tween(layer[back_box].bgalpha,0,.8);"	
+					   
+					   	onclick="skin_nextscene_loop(-1)"/>
+			</layer>
+			
+		
+		
+		
+    </layer>
+   
+  </layer>
+   <action name="hide_skin">
+	  tween(layer[toolbar_container].y,-600);
+	  
+	  </action>
+	    <action name="show_skin">
+	  tween(layer[toolbar_container].y,0);
+	  
+	  </action>
+	
+<action name="show_info_vi" >
+	set_infobox_style(style_1_fixed_expanded);
+				open_infobox_popup('Cam Ranh Riviera','%SWFPATH%/editsource/img.png','
+    
+    A 30-minute ride from Nha Trang City and only 20-minute drive from Cam Ranh International Airport, situated amongst a backdrop of lush green gardens, stunning tropical views and a shimmering turquoise sea, the incredible All-Inclusive blend of engaging activities, outstanding cuisine and comfortable accommodation is an ideal retreat for romantics and families seeking a unique and memorable stay in Cam Ranh, Vietnam.
+
+','800px','80%');
+	
+</action>
+
+
+<action name="show_info_en" >
+	set_infobox_style(style_1_fixed_expanded);
+				open_infobox_popup('Ancient Citadel of Son Tay','%SWFPATH%/editsource/img.png','
+    
+    Located in the centre of the town, the Ancient Citadel of Son Tay is the most ancient and unique military architecture in Vietnam solidly built in 1822 under the reign of King Minh Mang III. During the Nguyen Dynasty, Son Tay was regarded as one of the most important towns in Tonkin that secured Thang Long from the interior and externally served as a rear for the Court to defend the frontier in the upstream region of  the Red River. The Citadel was solidly built to defend the northwest land of Thang Long. Responding to King Ham Nghi’s Can Vuongmovement, here, in 1883, several fierce battles of the insurgents against the French invaders were witnessed. In 2022, on the 200th anniversary of the construction of the Ancient Citadel of Son Tay, Son Tay Town has deployed many activities to promote the citadels values mounted with the Son Tay - Doai Tourism Year 2022.&lt;/br&gt;
+    
+    
+With the unique architecture, constructed entirely by Vietnamese peculiar laterite, the Ancient Citadel of Son Tay built by King Minh Mang in 1822 was one of the most consequential military bases to safeguard the ancient Thang Long Capital. This is also a cultural-historical relic representing the Vietnamese ramparts model in the period against foreign invaders. In the 70s and 80s of the 19th Century, the Citadel was a centre of resistance against the French colonial army between the first and the second invasion of Tonkin (1882 - 1883). &lt;/br&gt;
+    
+The Citadel was built in a quadrilateral shape with a perimeter of 1,309.4 meters and 16ha large, surrounded by a moat 25-30m wide and 2-3m deep. Going through the moat is a wall constructed in Vauban architectural style (the type of military construction named after Vauban - a French engineer), with a protrusion to build a fortress. The walls were built of laterite that was rough, not plastered outside, then oxidized and turned reddish brown, which looks very beautiful. The face of the Citadel is 3m wide, slightly tilted inward that is walkable, and the base is 6m wide. On each side of the citadel, in the middle, the wall turns around in a semicircle, with an entrance gate and a watchtower. &lt;/br&gt;
+    
+The Citadel has four gates in the North, South, West and East directions, all of which are designed in quadrilateral shape with a trapezoidal cross-section. The two main gates are the North Gate overlooking Le Loi Street (where the Son Tay Town Peoples Committee is located) and the South Gate facing Quang Trung Street.  Above each gate offers a gazebo and only one entrance. The outside of the Citadel is covered with Duong ma Citadel (fish gills) in the cone shape blocking the surface. In the past, there were four brick bridges across the moat, but only two bridges exist today.&lt;/br&gt;
+    
+Inside Son Tay Citadel, there are many structures built at the same time, such as Flagpole (18-meter-high Ky Dai built on a large laterite pedestal), Kinh Thien Palace (Vong Cung), Governors Palace, Administration Commissioner, Surveillance Commissioner, Admiral, Vault, weapons depots, food depots, and two lotus ponds (also known as Ta well and Huu well) in front of the ceremonial area. Vong Cung is a place for the king to stay on travel incognito and for the regional mandarins to come to congratulate and worship the king from afar on public holidays. The shrine used to be a building where the mandarins worked with five compartments, two small rooms, and eight equidistant tiled roofs located in the middle of the citadel. In 1946, at Vong Cung - a significant structure of the Citadel - a meeting of the Government Council of the Democratic Republic of Vietnam took place to decide on important issues, opening the nine-year long-term resistance war against the French colonial aggression. &lt;/br&gt;
+    
+According to archived documents, King Minh Mang sent 2,000 elite construction troops to build the Ancient Citadel of Son Tay. The construction materials were mainly laterite exploited in Son Tay - Doai land. The Ancient Citadel of Son Tay used to be the place in which the administrative office of Doai land was located, including nearly half of the former Ha Tay province, Vinh Phuc province, a part of Phu Tho province, and Son Duong district of Tuyen Quang. Together with Bac Ninh Citadel, it is considered one of the two powerful pincers to protect Hanoi Capital from the risk of being attacked by French colonialists. Besides, the Ancient Citadel of Son Tay is also a symbol of the heroic struggle tradition of the Son Tay people. Since the ‘Can Vuong’ edict was spread to every part of the country, here in the Citadel many fierce, brave, and heroic battles of the insurgents against the Frend colonialists took place. In 1946, at Vong Cung, a meeting of the Government Council of the Democratic Republic of Vietnam was held to decide on crucial affairs, opening the door to the victories of the nine-year-long resistance war against the French colony. Given its cultural-historical values, in 1994, Son Tay Ancient Citadel was recognized as a national architectural historic relic by the Ministry of Culture Information (now is the Ministry of Culture  Tourism).&lt;/br&gt;
+Undergoing 200 years with countless historical vicissitudes, several structures of the Citadel have been destroyed. To preserve and promote the value of the relics of Son Tay Ancient Citadel, many projects have been implemented to repair and restore the architecture of the citadel. By referring to ancient records, they have resurrected some works such as Kinh Thien Palace, flag tower, laterite walls, etc. on the former foundation. Additionally, there is also a display area for two Mic21 aircraft from the Red Star Regiment and a Mi8 aircraft from the 916th Regiment, which are memorabilia left behind after the resistance war, contributing to increasing the landscape value of the relic, remind each persons mind of the sacred pride of the nations cultural traditions and heroic struggle history.
+','800px','80%');
+	
+</action>
+
+
+</krpano>

@@ -1,0 +1,103 @@
+﻿<krpano debugmode="true">
+
+	<!-- force enabled positional tracking -->
+	<plugin name="webvr" postracking="true"/>
+
+	
+
+
+	<action name="add_vr_element_thumb" scope="local" args="title, ath, yoffset, thumburl, clickaction">
+		addhotspot(auto,bg);
+		addhotspot(auto,thumb);
+		addhotspot(auto,thumb);
+		
+		addhotspot(auto,text);
+		
+
+		set(bg,    distorted=true, zorder=1, enabled=true, type=text, bgcolor=0x006666,bgshadow=0 0 1 #ffffff 0.8, bgalpha=0.8, bgroundedge=20, width=220, height=160, ath=calc(view.hlookat+ath), oy=calc((yoffset+20)*0.15*0.5)      , depth=220, scale=0.15,onover=tween(depth,219), onout=tween(depth,220));
+		
+		set(thumb, distorted=true, zorder=2, capture=false, url=get(thumburl), width=200, height=120, ath=calc(view.hlookat+ath), oy=calc(yoffset*0.15*0.5), depth=220, scale=0.145, onover=tween(depth,219), onout=tween(depth,220), clickaction=get(clickaction), onclick='set(enabled,false); clickaction();');
+		
+		set(text,  distorted=true, zorder=3, enabled=true, type=text, html=get(title), css='text-align:center;color:#FFFFFF;font-size:15px;font-weight:bold;', oversampling=3, mipmapping=true, bgcolor=0xFFFFFF, bgalpha=0.004, width=200, height=20, ath=calc(view.hlookat+ath), oy=calc((yoffset+145)*0.15*0.5), depth=220, scale=0.15,onover=tween(depth,219), onout=tween(depth,220) );
+		
+		
+	
+		set(bg,    ty=10000, autoalpha=true, alpha=0);
+		set(thumb, ty=10000, autoalpha=true, alpha=0);
+		set(text,  ty=10000, autoalpha=true, alpha=0);
+		
+		
+
+		<!-- store the current local scope to have later access to its local variables -->
+		set(global.thumbs[get(global.thumbs.length)],get(local));
+	</action>
+
+
+	<action name="showthumbs" scope="local">
+		for(set(i,0), i LT global.thumbs.length, inc(i),
+			scope(get(global.thumbs[get(i)]),
+				callwith(bg,    tween(ty|alpha, 0|1, 1.0, easeOutQuint|easeOutQuad); );
+				callwith(thumb, tween(ty|alpha, 0|1, 1.1, easeOutQuint|easeOutQuad); );
+				callwith(text,  tween(ty|alpha, 0|1, 1.2, easeOutQuint|easeOutQuad); );
+				
+			);
+		);
+	</action>
+
+	<action name="hidethumbs" scope="local">
+		for(set(i,0), i LT global.thumbs.length, inc(i),
+			scope(get(global.thumbs[get(i)]),
+				callwith(bg,    tween(alpha, 0, 0.5); );
+				callwith(thumb, tween(alpha, 0, 0.5); );
+				callwith(text,  tween(alpha, 0, 0.5); );
+				
+			);
+		);
+	</action>
+
+
+<action name="add_vr_thumb" scope="local" autorun="onstart">
+def(global.thumbs, array);
+
+add_vr_element_thumb('Toàn Cảnh Thành Cổ ',   -40, -420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!toancanhphianam.jpg',     load_toscene(thanhcosontay!toancanhphianam); );
+add_vr_element_thumb('Toàn Cảnh Phía Bắc ',   -20, -420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!toancanhphiabac.jpg',     load_toscene(thanhcosontay!toancanhphiabac); );
+add_vr_element_thumb('Giếng Ngọc - Bên Phải',   0, -420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!kydaivongcunggocphai.jpg',     load_toscene(thanhcosontay!kydaivongcunggocphai); );
+add_vr_element_thumb('Giếng Ngọc - Bên Trái',   20, -420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!kydaivongcunggoctrai.jpg',     load_toscene(thanhcosontay!kydaivongcunggoctrai); );
+add_vr_element_thumb('Sân Trưng Bày Máy Bay',   40, -420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!santryngbaymaybay.jpg',     load_toscene(thanhcosontay!santryngbaymaybay); );
+		
+		
+add_vr_element_thumb('Bắc Môn',   -40, 0, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!bacmon.jpg',     load_toscene(thanhcosontay!bacmon); );
+add_vr_element_thumb('Tây Môn',   -20, 0, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!taymon.jpg',     load_toscene(thanhcosontay!taymon); );
+add_vr_element_thumb('Nam Môn',   0, 0, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!nammon.jpg',     load_toscene(thanhcosontay!nammon); );
+add_vr_element_thumb('Tường Thành Phía Nam',   20, 0, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!tuongthanhphianam.jpg',     load_toscene(thanhcosontay!tuongthanhphianam); );
+add_vr_element_thumb('Đoan Môn',   40, 0, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!doanmon.jpg',     load_toscene(thanhcosontay!doanmon); );
+		
+		
+add_vr_element_thumb('Kỳ Đài',   -40, 420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!kydai.jpg',     load_toscene(thanhcosontay!kydai); );
+add_vr_element_thumb('Chính Điện',   -20, 420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!chinhdien.jpg',     load_toscene(thanhcosontay!chinhdien); );
+add_vr_element_thumb('Vọng Cung',   0, 420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!vongcung.jpg',     load_toscene(thanhcosontay!vongcung); );
+add_vr_element_thumb('Nhà Trưng Bày',   20, 420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!nhatrungbay.jpg',     load_toscene(thanhcosontay!nhatrungbay); );
+add_vr_element_thumb('Cửa Phía Nam',   40, 420, '%SWFPATH%/projects/meta365/panos/thumb/thanhcosontay!cuaphianam.jpg',     load_toscene(thanhcosontay!cuaphianam); );
+		
+	</action>
+
+<action name="add_vr_thumb_tong" scope="local" autorun="onstart">
+		def(global.thumbs, array);
+	
+		add_vr_element_thumb('Tầng 1',   -20, 0, '%SWFPATH%/projects/meta365/panos/thumb/t1_5.jpg',     load_toscene(t1_5); );
+		add_vr_element_thumb('Tầng 2',   0, 0, '%SWFPATH%/projects/meta365/panos/thumb/t1_7.jpg',     load_toscene(t1_7); );
+		add_vr_element_thumb('Tầng 3',   20, 0, '%SWFPATH%/projects/meta365/panos/thumb/t1_8.jpg',     load_toscene(t1_8); );
+	
+		
+	</action>
+
+
+	<action name="load_toscene">
+		hidethumbs();
+		delayedcall(0.75,
+			loadscene(%1,null,MERGE|KEEPPLUGINS|KEEPVIEW|KEEPMOVING,BLEND(.5));
+		);
+	</action>
+
+
+</krpano>

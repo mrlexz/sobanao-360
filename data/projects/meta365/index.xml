@@ -1,0 +1,542 @@
+﻿<krpano version="1.20.9" language="vi" title="vr360">
+
+	<include url="includer.xml" />
+	<inclusde url="chromakey_helper.xml" />
+	<set var="chromakey_helper_hotspot" val="video" />
+	 <autorotate  enabled="true"  waittime="2" accel="3" speed=".5" horizon ="view.hlookat" />
+
+
+	
+	<scene name="scene_s1!maingatearea" title="Over View" onstart="" thumburl="panos/s1!maingatearea.tiles/thumb.jpg" lat="12.09542056" lng="109.19122194" heading="0.0">
+
+		<view hlookat ="280.57" vlookat ="-4.31" fovtype="MFOV" fov="140.00" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s1!maingatearea.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/s1!maingatearea.tiles/pano_%s.jpg" />
+		</image>
+		
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s2!lobby,ahead,267.550,11.120,0);	
+				
+				
+				
+						"
+		/>
+	</scene>
+
+	<scene name="scene_s2!lobby" title="Over View Center" onstart="" thumburl="panos/s2!lobby.tiles/thumb.jpg" lat="12.09600000" lng="109.19292694" heading="0.0">
+
+		<view hlookat ="40.83" vlookat ="3.10" fovtype="MFOV" fov="132.95" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s2!lobby.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/s2!lobby.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s1!maingatearea,ahead,213.480,18.460,0);
+				
+				create_hs(scene_s7!mainpoolleft,ahead,338.400,11.740,0);
+				create_hs(scene_s4!terrasseoutdoor,ahead,34.110,34.670,0);	
+				create_hs(scene_s17!regencyclubindoor,ahead,126.020,23.370,0);	
+				
+				"
+				
+					
+				/>
+		
+	</scene>
+
+	<scene name="scene_s3!terrasse_indoor" title="Gate Fly" onstart="" thumburl="panos/s3!terrasse_indoor.tiles/thumb.jpg" lat="12.09613694" lng="109.18823028" heading="0.0">
+
+		<view hlookat ="209.60" vlookat ="3.88" fovtype="MFOV" fov="120.00" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s3!terrasse_indoor.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/s3!terrasse_indoor.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s4!terrasseoutdoor,ahead,170.380,28.390,0);
+				create_hs(scene_s2!lobby,ahead,30.710,42.090,0);
+				
+				
+				"
+				
+					
+				/>
+
+	</scene>
+
+	<scene name="scene_s4!terrasseoutdoor" title="Gate" onstart="" thumburl="panos/s4!terrasseoutdoor.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat ="129.51" vlookat ="3.80" fovtype="MFOV" fov="120.00" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s4!terrasseoutdoor.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s4!terrasseoutdoor.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s2!lobby,ahead,38.910,29.510,0);
+				create_hs(scene_s3!terrasse_indoor,ahead,305.850,42.200,0);
+				
+				
+				"
+				
+					
+				/>
+
+	</scene>
+
+	<scene name="scene_s5!osteriaalmare1" title="Gym" onstart="" thumburl="panos/s5!osteriaalmare1.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s5!osteriaalmare1.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s5!osteriaalmare1.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s3!terrasse_indoor,ahead,283.170,39.810,0);
+				create_hs(scene_s6!osteriaaimare2,ahead,175.650,64.450,0);
+				
+				
+				"
+				
+					
+				/>
+
+	</scene>
+
+	<scene name="scene_s6!osteriaaimare2" title="Pool" onstart="" thumburl="panos/s6!osteriaaimare2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s6!osteriaaimare2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s6!osteriaaimare2.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s5!osteriaalmare1,turn_right,34.21,16.75,0);
+				
+				
+				"
+				
+					
+				/>
+
+
+	</scene>
+
+	<scene name="scene_s7!mainpoolleft" title="Lobby" onstart="" thumburl="panos/s7!mainpoolleft.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s7!mainpoolleft.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s7!mainpoolleft.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s8!mainpoolright,ahead,3.280,47.100,0);	
+				create_hs(scene_s15!camphyattindoor,turn_right,199.360,27.830,0);	
+				create_hs(scene_s2!lobby,turn_left,145.310,16.620,0);	
+				
+				
+					
+						"
+		/>
+
+	</scene>
+
+	<scene name="scene_s8!mainpoolright" title="Lobby 2" onstart="" thumburl="panos/s8!mainpoolright.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat ="264.53" vlookat ="1.27" fovtype="MFOV" fov="120.00" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s8!mainpoolright.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s8!mainpoolright.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s11!beach,ahead,85.470,34.080,0);	
+				create_hs(scene_s10!poolhouse,ahead,320.550,30.000,0);	
+				create_hs(scene_s7!mainpoolleft,ahead,262.350,26.080,0);	
+				
+					
+						"
+		/>
+
+	</scene>
+
+	<scene name="scene_s9!residencedlawnarea" title="Private Beach Fly" onstart="" thumburl="panos/s9!residencedlawnarea.tiles/thumb.jpg" lat="12.09597556" lng="109.19477222" heading="0.0">
+
+		<view hlookat ="182.47" vlookat ="-0.39" fovtype="MFOV" fov="119.61" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s9!residencedlawnarea.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/s9!residencedlawnarea.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s11!beach,ahead,182.960,35.820,0);	
+				create_hs(scene_s10!poolhouse,ahead,320.550,30.000,0);	
+				create_hs(scene_s2!lobby,ahead,3.320,21.110,0);	
+				create_hs(scene_s7!mainpoolleft,ahead,49.780,23.980,0);	
+				create_hs(scene_s13!beachclub,ahead,126.830,19.770,0);	
+				
+					
+						"
+						/>
+	</scene>
+
+	
+	<scene name="scene_s10!poolhouse" title="Private Beach" onstart="" thumburl="panos/s10!poolhouse.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s10!poolhouse.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s10!poolhouse.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s7!mainpoolleft,ahead,272.340,39.720,0);	
+				create_hs(scene_s8!mainpoolright,ahead,143.510,57.860,0);	
+				create_hs(scene_s9!residencedlawnarea,ahead,89.960,40.180,0);	
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s11!beach" title="Lobby Spa" onstart="" thumburl="panos/s11!beach.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s11!beach.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s11!beach.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s9!residencedlawnarea,ahead,119.380,17.490,0);
+				create_hs(scene_s12!graden,ahead,225.200,26.780,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s12!graden" title="Spa" onstart="" thumburl="panos/s12!graden.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s12!graden.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s12!graden.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s11!beach,ahead,93.390,23.830,0);
+				create_hs(scene_s9!residencedlawnarea,ahead,274.750,29.730,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s13!beachclub" title="Rosone restaurant" onstart="" thumburl="panos/s13!beachclub.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s13!beachclub.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s13!beachclub.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				create_hs(scene_s15!camphyattindoor,ahead,238.010,37.860,0);
+				create_hs(scene_s11!beach,ahead,4.810,36.260,0);
+				create_hs(scene_s9!residencedlawnarea,ahead,53.070,9.680,0);
+				create_hs(scene_s14!beachclub2,ahead,145.710,39.340,0);
+				
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s14!beachclub2" title="State" onstart="" thumburl="panos/s14!beachclub2.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s14!beachclub2.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s14!beachclub2.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				create_hs(s13!beachclub,ahead,23.120,41.940,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s15!camphyattindoor" title="Tennis Court" onstart="" thumburl="panos/s15!camphyattindoor.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s15!camphyattindoor.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s15!camphyattindoor.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s16!trochoi,ahead,179.930,27.750,0);
+				create_hs(scene_s14!beachclub2,ahead,38.290,20.590,0);
+				create_hs(scene_s7!mainpoolleft,ahead,92.460,24.830,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s16!trochoi" title="Water Park" onstart="" thumburl="panos/s16!trochoi.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s16!trochoi.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s16!trochoi.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s15!camphyattindoor,ahead,74.020,26.330,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s17!regencyclubindoor" title="Cam Ranh Airport" onstart="" thumburl="panos/s17!regencyclubindoor.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s17!regencyclubindoor.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s17!regencyclubindoor.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s2!lobby,ahead,200.370,28.370,0);
+				create_hs(scene_s20!tearoom,ahead,289.880,38.560,0);
+				create_hs(scene_s18!regencyclubpool,ahead,350.210,32.750,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s18!regencyclubpool" title="Cam Ranh City" onstart="" thumburl="panos/s18!regencyclubpool.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s18!regencyclubpool.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s18!regencyclubpool.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s17!regencyclubindoor,ahead,293.780,13.010,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s19!viespagarden" title="Nha Trang City" onstart="" thumburl="panos/s19!viespagarden.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s19!viespagarden.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s19!viespagarden.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				
+				create_hs(scene_s21!fitnesspoolarea,ahead,180.430,26.910,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s20!tearoom" title="Nha Trang City" onstart="" thumburl="panos/s20!tearoom.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s20!tearoom.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s20!tearoom.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s2!lobby,ahead,156.270,36.550,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s21!fitnesspoolarea" title="Nha Trang City" onstart="" thumburl="panos/s21!fitnesspoolarea.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s21!fitnesspoolarea.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s21!fitnesspoolarea.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s19!viespagarden,ahead,145.290,34.630,0);
+				create_hs(scene_s22!fitness,ahead,270.700,24.140,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s22!fitness" title="Nha Trang City" onstart="" thumburl="panos/s22!fitness.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s22!fitness.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s22!fitness.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s21!fitnesspoolarea,ahead,78.710,23.740,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	<scene name="scene_s23!baico" title="Nha Trang City" onstart="" thumburl="panos/s23!baico.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/s23!baico.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/s23!baico.tiles/pano_%s.jpg" />
+		</image>
+		<events name="novaworldhotram!toancanh!s3"
+		onloadcomplete="
+				
+				
+				create_hs(scene_s11!beach,ahead,24.730,22.040,0);
+				
+				
+				
+					
+						"
+						/>
+
+	</scene>
+
+	
+
+
+
+
+
+
+
+</krpano>
