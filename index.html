@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Master</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
-        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -17,150 +14,52 @@
     <iframe src="tour360.html" frameborder="0" width="100%" height="100vh"></iframe>
     
     <!-- Add this right before the bottom-menu div -->
-
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu"></button>
-    <!-- Bottom Menu Bar -->
-    <div class="bottom-menu">
-        <div class="logo-container logo-container__mobile">
-            <div class="menu-item-img-wrapper">
-              <img src="./data/images/logo.png" alt="Logo" class="logo-item">
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/toancanh.png" alt="Logo" class="icon">
-              </i></div>
-              <span>TOÀN CẢNH</span>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/vitri.png" alt="Logo" class="icon">
-              </div>
-              <span>VỊ TRÍ</span>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/matbang.png" alt="Logo" class="icon">
-              </div>
-              <span>MẶT BẰNG</span>
-            </div>
-        </div>
-        <div class="menu-item menu-item-no-border-r">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/tienich.png" alt="Logo" class="icon">
-              </div>
-              <span>TIỆN ÍCH</span>
-            </div>
-        </div>
-        <div class="logo-container">
-            <div class="menu-item-img-wrapper">
-              <img src="./data/images/logo.png" alt="Logo" class="logo-item">
-            </div>
-        </div>
-        <div class="menu-item menu-item-no-border-l">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/clubhouse.png" alt="Logo" class="icon">
-              </div>
-              <span>CLUBHOUSE</span>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/nhamau.png" alt="Logo" class="icon">
-              </div>
-              <span>NHÀ MẪU</span>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/thuvien.png" alt="Logo" class="icon">
-              </div>
-              <span>THƯ VIỆN</span>
-            </div>
-        </div>
-        <div class="menu-item">
-            <div class="menu-item-wrapper">
-              <div class="icon-circle">
-                <img src="./data/icon/tongquanduan.png" alt="Logo" class="icon">
-              </div>
-              <span>TỔNG QUAN DỰ ÁN</span>
-            </div>
-        </div>
-    </div>
+    
+    <!-- Include menu from external file -->
+    <div id="menu-container"></div>
 
     <script>
         jQuery(document).ready(function (e) {
+            // Load the menu content
+            $("#menu-container").load("menu.html", function() {
+                // Initialize menu functionality after loading
+                initializeMenu();
+            });
+            
             function t(t) {
                 e(t).bind("click", function (t) {
                     t.preventDefault();
                     e(this).parent().fadeOut()
                 })
             }
-            e(".dropdown-toggle").click(function () {
-                var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
-                e(".button-dropdown .dropdown-menu").hide();
-                e(".button-dropdown .dropdown-toggle").removeClass("active");
-                if (t) {
-                    e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
-                }
-            });
-            e(document).bind("click", function (t) {
-                var n = e(t.target);
-                if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
-            });
-            e(document).bind("click", function (t) {
-                var n = e(t.target);
-                if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
-            })
         });
-    </script>
-
-    <script>
-        $(document).ready(function() {
+        
+        // Menu functionality in a separate function
+        function initializeMenu() {
             // Menu toggle functionality
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
             const menuToggle = $('#menuToggle');
             const bottomMenu = $('.bottom-menu');
             
-            // Initialize menu as closed on mobile/tablet
-            if ($(window).width() <= 1024) {
-                bottomMenu.addClass('closed');
-                menuToggle.removeClass('active');
-            }
-            
-            // Toggle menu on button click
-            menuToggle.click(function() {
-                bottomMenu.toggleClass('closed');
-                $(this).toggleClass('active');
+            $('.menu-item a').each(function() {
+                const menuItemPath = $(this).attr('href').split('/').pop();
+                if (menuItemPath === currentPath) {
+                    $(this).parent('.menu-item').addClass('active');
+                    return false; // Exit loop if found
+                }
             });
             
             // Make menu items clickable
             $('.menu-item').click(function() {
                 $('.menu-item').removeClass('active');
                 $(this).addClass('active');
-                
             });
             
             // Set first item as active by default
             $('.menu-item:first-child').addClass('active');
-            
-            // Handle window resize
-            $(window).resize(function() {
-                if ($(window).width() > 1024) {
-                    bottomMenu.removeClass('closed');
-                } else if (!menuToggle.hasClass('active')) {
-                    bottomMenu.addClass('closed');
-                }
-            });
-        });
+        }
     </script>
 
 </body>

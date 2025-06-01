@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Master - Tổng quan dự án</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    <!-- Add this right before the bottom-menu div -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu"></button>
+    <section class="full-height-banner">
+            <div class="banner-background"></div>
+            <div class="banner-overlay"></div>
+            <img src="./data/images/tongquanduan_banner.jpg" alt="Banner Image" class="banner-image">
+            <div class="banner-content">
+                <p>Prime Master là Khu đô thị biểu tượng tại khu Tây Bắc TP HCM, dành riêng cho tầng lớp thượng lưu. Tên gọi Prime Master thể hiện sự cao cấp, xuất sắc ("Prime") và sự làm chủ ("Master"), khẳng định đẳng cấp và sự hoàn thiện. Dự án mang tính độc bản và độc quyền, không dành cho số đông.</p>
+                <p>Đây là mô hình khu đô thị compound đầu tiên và duy nhất trong khu vực.</p>
+                <p>Các yếu tố nổi bật nhất bao gồm:</p>
+                <ul>
+                <li>Thiết kế sang trọng, xa hoa theo phong cách tân cổ điển châu Âu (nhà phố 5 tầng nổi, 1 hầm riêng, thang máy riêng, phòng khách thông tầng, phòng master full tầng).</li>
+                <li>Đặc quyền chăm sóc sức khỏe toàn diện với hệ tiện ích 5 sao đẳng cấp (hồ bơi điện phân muối, bể sục, giường massage thủy trị liệu, gym, yoga, sauna đá muối, massage trị liệu 4D, vườn thảo mộc).</li>
+                <li>An ninh tuyệt đối ứng dụng công nghệ tối tân (compound biệt lập 1 lối vào, cảm biến điện tử, camera AI/hồng ngoại, Face ID, smart parking, khóa/cửa hầm thông minh, trạm gác VIP 24/7).</li>
+                <li>Tiện ích cộng thêm cao cấp (Clubhouse đặc quyền đầu tư 100 tỷ, công viên trung tâm, công viên thú cưng, khu sạc xe điện, smart locker).</li>
+                </ul>
+                <p>Sở hữu Prime Master không chỉ là sở hữu không gian sống thượng hạng mà còn là tài sản giá trị vượt thời gian, di sản truyền đời, là biểu tượng khẳng định đẳng cấp và vị thế.</p>
+            </div>
+        </section>
+    
+    <!-- Include menu from external file -->
+    <div id="menu-container"></div>
+
+    <script>
+        jQuery(document).ready(function (e) {
+            // Load the menu content
+            $("#menu-container").load("menu.html", function() {
+                // Initialize menu functionality after loading
+                initializeMenu();
+            });
+            
+            function t(t) {
+                e(t).bind("click", function (t) {
+                    t.preventDefault();
+                    e(this).parent().fadeOut()
+                })
+            }
+        });
+        
+        // Menu functionality in a separate function
+        function initializeMenu() {
+            // Menu toggle functionality
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+            const menuToggle = $('#menuToggle');
+            const bottomMenu = $('.bottom-menu');
+            
+            $('.menu-item a').each(function() {
+                const menuItemPath = $(this).attr('href').split('/').pop();
+                if (menuItemPath === currentPath) {
+                    $(this).parent('.menu-item').addClass('active');
+                    return false; // Exit loop if found
+                }
+            });
+            
+            // Make menu items clickable
+            $('.menu-item').click(function() {
+                $('.menu-item').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Set first item as active by default
+            $('.menu-item:first-child').addClass('active');
+        }
+    </script>
+
+</body>
+
+</html>
