@@ -384,6 +384,10 @@ body {
     display: none;
   }
 
+  .menu-item.active span, .menu-item:hover span {
+    display: block !important;
+  }
+
   .logo-container {
     height: 80px;
   }
