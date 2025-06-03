@@ -63,7 +63,6 @@
                 const menuItemPath = $(this).attr('href').split('/').pop();
                 if (menuItemPath === currentPath) {
                     $(this).parent('.menu-item').addClass('active');
-                    return false; // Exit loop if found
                 }
             });
             
@@ -72,9 +71,6 @@
                 $('.menu-item').removeClass('active');
                 $(this).addClass('active');
             });
-            
-            // Set first item as active by default
-            $('.menu-item:first-child').addClass('active');
         }
     </script>
 

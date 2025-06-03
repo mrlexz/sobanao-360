@@ -84,6 +84,19 @@ body {
   transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
+.right-menu {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 /* Menu closed state */
 .bottom-menu.closed {
   transform: translateY(100%);
@@ -448,13 +461,23 @@ body {
   }
   
   .full-height-banner {
-    /* min-height: 400px;
-    justify-content: center; */
     flex-direction: column;
   }
 
   .banner-image {
     width: 100%;
+  }
+
+  .right-menu {
+    display: flex;
+  }
+  
+  .right-menu .menu-item-wrapper {
+    flex-direction: column;
+  }
+
+  .right-menu .menu-item-wrapper span {
+    writing-mode: sideways-lr;
   }
 }
 
